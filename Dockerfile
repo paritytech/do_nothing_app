@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3
+FROM docker.io/library/python:3-slim
 
 # Non-root user for security purposes.
 #
