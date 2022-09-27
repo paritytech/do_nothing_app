@@ -25,7 +25,7 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
         text = ""
         text = self._handle_health_check(text)
         text = self._handle_metrics_request(text)
-        # text = _handle_foo()
+        text = self._handle_foo(text)
         text = self._check_path_is_valid(text)
 
         self.send_header("Content-type", "text/plain")
@@ -54,11 +54,11 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
             )
         return text
 
-    # def _handle_foo(self, text):
-    #     if self.path == "/foo":
-    #         self.send_response(200)
-    #         text = "OK"
-    #     return text
+    def _handle_foo(self, text):
+        if self.path == "/foo":
+            self.send_response(200)
+            text = "OK"
+        return text
 
     def _check_path_is_valid(self, text):
         if text is None:
